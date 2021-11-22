@@ -98,7 +98,7 @@ for (let i = 0; i < posts.length; i ++) {
             </div>
             <div class="likes__counter">
               Piace a
-              <b id="like-counter-1" class="js-likes-counter">${posts[i].likes}</b> persone
+              <b id="like-counter-${posts[i].id}" class="js-likes-counter">${posts[i].likes}</b> persone
             </div>
           </div>
         </div>
@@ -107,14 +107,7 @@ for (let i = 0; i < posts.length; i ++) {
 
 
 
-    let like = document.getElementsByClassName('js-like-button');
-    console.log(like[i]);
-
-    like[i].addEventListener('click', function(event){
-      event.preventDefault()
-      posts[i].likes = posts[i].likes +  1;
-
-    });
+   
 
     
     // let divPost = document.createElement('div');
@@ -150,4 +143,18 @@ for (let i = 0; i < posts.length; i ++) {
     // divFooter.classList.add('post__footer');
     // postDiv[i].appendChild(divFooter);
     // // div.classList.add('post__footer');
+}
+let like = document.getElementsByClassName('js-like-button');
+for (let i = 0 ; i < posts.length; i ++ ) {
+ 
+  like[i].addEventListener('click', function(event){
+    event.preventDefault();
+    posts[i].likes += 1;
+    console.log(posts[i].likes);
+
+    let id = document.getElementById('like-counter-'+(i+1));
+    console.log(id);
+
+    id.innerHTML = posts[i].likes;
+  });
 }
