@@ -105,14 +105,18 @@ for (let i = 0; i < posts.length; i ++) {
       </div>
     `;
 
+
+
     let like = document.getElementsByClassName('js-like-button');
+    console.log(like[i]);
+
     like[i].addEventListener('click', function(event){
-        event.preventDefault();
-        posts[i].likes += 1;
-        console.log(posts[i].likes);
+      event.preventDefault()
+      posts[i].likes = posts[i].likes +  1;
+
     });
 
-
+    
     // let divPost = document.createElement('div');
     // divPost.classList.add('post');
     // container.appendChild(divPost);  
