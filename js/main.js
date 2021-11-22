@@ -156,5 +156,6 @@ for (let i = 0 ; i < posts.length; i ++ ) {
     console.log(id);
 
     id.innerHTML = posts[i].likes;
-  });
+  }, {once : true}
+  );
 }
