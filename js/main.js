@@ -70,7 +70,7 @@ for (let i = 0; i < posts.length; i ++) {
               <img
                 class="profile-pic"
                 src="${posts[i].author.image}"
-                alt="${posts[i].author.name}"
+                alt="${posts[i].author.name[0]}"
               />
             </div>
             <div class="post-meta__data">
@@ -104,11 +104,6 @@ for (let i = 0; i < posts.length; i ++) {
         </div>
       </div>
     `;
-
-
-
-   
-
     
     // let divPost = document.createElement('div');
     // divPost.classList.add('post');
@@ -146,7 +141,7 @@ for (let i = 0; i < posts.length; i ++) {
 }
 let like = document.getElementsByClassName('js-like-button');
 for (let i = 0 ; i < posts.length; i ++ ) {
- 
+  
   like[i].addEventListener('click', function(event){
     event.preventDefault();
     posts[i].likes += 1;
@@ -156,6 +151,12 @@ for (let i = 0 ; i < posts.length; i ++ ) {
     console.log(id);
 
     id.innerHTML = posts[i].likes;
-  }, {once : true}
+
+    like[i].classList.add('like-button--liked');
+
+  }, {once : true }
   );
 }
+
+
+console.log(posts[0].author.name[0]);
